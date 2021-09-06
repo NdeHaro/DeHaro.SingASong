@@ -108,7 +108,7 @@ There was an old lady who swallowed a horse...
 
 		public void Test_Two_Animals_Song()
 		{
-			var sut = new Song(new[] { "monkey" });
+			var sut = new Song(new[] { "elephant", "tiger" });
 			Assert.Equal(TWO_ANIMALS, sut.SingIt());
 		}
 	}
