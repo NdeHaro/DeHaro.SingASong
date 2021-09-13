@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace SingASong
+namespace NDeHaro.SingASong
 {
 	public class Song
 	{

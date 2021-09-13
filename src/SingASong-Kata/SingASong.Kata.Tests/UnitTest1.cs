@@ -1,10 +1,11 @@
-﻿using Xunit;
+using NDeHaro.SingASong;
+using NUnit.Framework;
 
-namespace SingASong
+namespace SingASong.Kata.Tests
 {
-    internal class SongTests
+    public class Tests
     {
-        private const string ORIGINAL = @"There was an old lady who swallowed a fly.
+		private const string ORIGINAL = @"There was an old lady who swallowed a fly.
 I don't know why she swallowed a fly - perhaps she'll die!
 There was an old lady who swallowed a spider;
 That wriggled and wiggled and tickled inside her.
@@ -39,7 +40,7 @@ I don't know why she swallowed a fly - perhaps she'll die!
 There was an old lady who swallowed a horse...
 ...She's dead, of course!";
 
-        private const string CUSTOM = @"There was an old lady who swallowed a animal1.
+		private const string CUSTOM = @"There was an old lady who swallowed a animal1.
 I don't know why she swallowed a animal1 - perhaps she'll die!
 There was an old lady who swallowed a animal2;
 That wriggled and wiggled and tickled inside her.
@@ -74,12 +75,12 @@ I don't know why she swallowed a animal1 - perhaps she'll die!
 There was an old lady who swallowed a animal7...
 ...She's dead, of course!";
 
-        private const string ONE_ANIMAL = @"There was an old lady who swallowed a monkey.
+		private const string ONE_ANIMAL = @"There was an old lady who swallowed a monkey.
 I don't know why she swallowed a monkey - perhaps she'll die!
 There was an old lady who swallowed a horse...
 ...She's dead, of course!";
 
-        private const string TWO_ANIMALS = @"There was an old lady who swallowed a elephant.
+		private const string TWO_ANIMALS = @"There was an old lady who swallowed a elephant.
 I don't know why she swallowed a tiger - perhaps she'll die!
 There was an old lady who swallowed a tiger;
 That wriggled and wiggled and tickled inside her.
@@ -87,29 +88,29 @@ She swallowed the tiger to catch the elephant;
 I don't know why she swallowed a elephant - perhaps she'll die!
 There was an old lady who swallowed a horse...
 ...She's dead, of course!";
-
-        public void Test_Original_Song()
-        {
-            var sut = new Song(null);
-            Assert.Equal(ORIGINAL, sut.SingIt());
-        }
-
-        public void Test_Custom_Song()
-        {
-            var sut = new Song(new[] { "animal1", "animal2", "animal3", "animal4", "animal5", "animal6", "animal7" });
-            Assert.Equal(CUSTOM, sut.SingIt());
-        }
-
-        public void Test_One_Animal_Song()
-        {
-            var sut = new Song(new[] { "monkey" });
-            Assert.Equal(ONE_ANIMAL, sut.SingIt());
-        }
-
-        public void Test_Two_Animals_Song()
-        {
-            var sut = new Song(new[] { "elephant", "tiger" });
-            Assert.Equal(TWO_ANIMALS, sut.SingIt());
-        }
-    }
+		[Test]
+		public void Test_Original_Song()
+		{
+			var sut = new Song(null);
+			Assert.AreEqual(ORIGINAL, sut.SingIt());
+		}
+		[Test]
+		public void Test_Custom_Song()
+		{
+			var sut = new Song(new[] { "animal1", "animal2", "animal3", "animal4", "animal5", "animal6", "animal7" });
+			Assert.AreEqual(CUSTOM, sut.SingIt());
+		}
+		[Test]
+		public void Test_One_Animal_Song()
+		{
+			var sut = new Song(new[] { "monkey" });
+			Assert.AreEqual(ONE_ANIMAL, sut.SingIt());
+		}
+		[Test]
+		public void Test_Two_Animals_Song()
+		{
+			var sut = new Song(new[] { "elephant", "tiger" });
+			Assert.AreEqual(TWO_ANIMALS, sut.SingIt());
+		}
+	}
 }
