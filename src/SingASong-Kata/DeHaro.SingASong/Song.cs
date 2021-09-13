@@ -63,13 +63,13 @@ There was an old lady who swallowed a horse...
 				}
 				else
 				{
-					ReplaceAnimals(animals);
+					ReplaceAllAnimals(animals);
 				}
 			}
 		}
-		private void ReplaceAnimals(string[] animalList)
+		private void ReplaceAllAnimals(string[] animalList)
 		{
-			if (TestAnimalList(animalList))
+			if (TestAnimalList(animalList) && animalList.Length > 5)
 			{
 				song = song.Replace("fly", animalList[0]);
 				song = song.Replace("spider", animalList[1]);
@@ -86,9 +86,9 @@ There was an old lady who swallowed a horse...
 			string[] v = this.song.Split("\n");
 			String sb = "";
 			sb = sb + v[0] + "\n";
-			sb = sb + v[1] + "\n";
-			sb = sb + v[2] + "\n";
-			sb = sb + v[3];
+			sb = sb + v[v.Length - 3] + "\n";
+			sb = sb + v[v.Length - 2] + "\n";
+			sb = sb + v[v.Length - 1];
 			this.song = sb.Replace("fly", animals[0]);
 		}
 		private void TwoAnimals(string[] animals)
@@ -103,8 +103,8 @@ There was an old lady who swallowed a horse...
 			sb[4] = (v[4].Replace("fly", animals[0]));
 			sb[4] = (sb[4].Replace("spider", animals[1])) + "\n";
 			sb[5] = (v[5].Replace("fly", animals[0])) + "\n";
-			sb[6] = v[6] + "\n";
-			sb[7] = v[7];
+			sb[6] = v[v.Length - 2] + "\n";
+			sb[7] = v[v.Length - 1];
 
 			StringBuilder builder = new StringBuilder();
 			for (int i = 0; i < sb.Length; i++)
